@@ -50,7 +50,7 @@ function init() {
 	controls.addEventListener('change', renderer);
 	
 	let loader = new THREE.GLTFLoader();
-	loader.load('8ozCup.glb', function(gltf){
+	loader.load('8ozCup.gltf', function(gltf){
 		car = gltf.scene.children[0];
 		scene.add(gltf.scene);
 		animate();
