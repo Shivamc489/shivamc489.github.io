@@ -22,12 +22,10 @@
         camera.position.y = 100;
         camera.position.z = 1000;
 
-        renderer = new THREE.WebGLRenderer({antialias:true});
-        renderer.setSize(window.innerWidth,window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+
 
         controls = new THREE.OrbitControls(camera,renderer.domElement);
-        controls.addEventListener('change', renderer);
+        controls.addEventListener('change', render);
 
         hlight = new THREE.AmbientLight (0x404040,100);
         scene.add(hlight);
@@ -49,10 +47,12 @@
         light4.position.set(-500,300,500);
         scene.add(light4);
 
-        
+        renderer = new THREE.WebGLRenderer({antialias:true});
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        document.body.appendChild(renderer.domElement);
 
         let loader = new THREE.GLTFLoader();
-        loader.load('scene.gltf', function(gltf){
+        loader.load('8ozCup.glb', function(gltf){
           car = gltf.scene.children[0];
           car.scale.set(0.5,0.5,0.5);
           scene.add(gltf.scene);
