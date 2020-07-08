@@ -9,6 +9,7 @@
     <script src="GLTFLoader.js"></script>
     <script src="OrbitControls.js"></script>
     <script>
+      
 let scene, camera, render
 
 
@@ -49,16 +50,6 @@ function init() {
     light.position.set(-5000, 300, 0)
     scene.add(light4)
 
-    // extra cube
-    const geometry = new THREE.BoxGeometry(1,1,1);
-    const mat = new THREE.MeshNormalMaterial();
-    const cube = new THREE.Mesh(geometry,mat);
-    scene.add(cube);
-
-    cube.position.x = 5;
-    cube.position.z = -5;
-    // extra end
-
 
 
     renderer = new THREE.WebGLRenderer({antialias: true})
@@ -70,7 +61,7 @@ function init() {
 
     let loader = new THREE.GLTFLoader()
     loader.load('scene.gltf', function(gltf){
-        car = gltf.scene.children[0]
+        var car = gltf.scene.children[0]
         car.scale.set(0.5, 0.5, 0.5)
         scene.add(gltf.scene)
         animate();
