@@ -49,6 +49,17 @@ function init() {
     light.position.set(-5000, 300, 0)
     scene.add(light4)
 
+    // extra cube
+    const geometry = new THREE.BoxGeometry(1,1,1);
+    const mat = new THREE.MeshNormalMaterial();
+    const cube = new THREE.Mesh(geometry,mat);
+    scene.add(cube);
+
+    cube.position.x = 5;
+    cube.position.z = -5;
+    // extra end
+
+
 
     renderer = new THREE.WebGLRenderer({antialias: true})
     renderer.setSize(window.innerWidth, window.innerHeight)
