@@ -23,8 +23,6 @@ function init() {
 	camera.position.y = 2;
 	camera.position.z = -5;
 	
-	controls = new THREE.OrbitControls(camera);
-	controls.addEventListener('change', renderer);
 	
 	var hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
 	hemiLight.position.set( 0, 20, 0 );
@@ -45,10 +43,14 @@ function init() {
 	renderer.setSize(window.innerWidth,window.innerHeight);
 	renderer.gammaOutput = true;
 	renderer.gammaFactor = 2.2;
-	document.body.appendChild(renderer.domElement);
+  document.body.appendChild(renderer.domElement);
+  
+  
+	controls = new THREE.OrbitControls(camera, renderer.domElement);
+	controls.addEventListener('change', renderer);
 	
 	let loader = new THREE.GLTFLoader();
-	loader.load('https://threejs.org/examples/models/gltf/Soldier.glb', function(gltf){
+	loader.load('8ozCup.glb', function(gltf){
 		car = gltf.scene.children[0];
 		scene.add(gltf.scene);
 		animate();
