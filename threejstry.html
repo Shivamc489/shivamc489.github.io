@@ -57,9 +57,9 @@ function init() {
 	});
 
 	document.getElementById("hideShow").addEventListener("click", function(){
-		var lid = gltf.scene.getObjectByName("Lid");
+		var lid = scene.getObjectByName("Lid");
+		console.log(scene);
 		console.log(scene.children);
-		console.log(gltf.scene);
 		console.log(lid);
     	lid.visible = !lid.visible;
 	});
