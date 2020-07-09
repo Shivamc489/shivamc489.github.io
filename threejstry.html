@@ -7,7 +7,8 @@
   <body>
     <script src="three.js"></script>
     <script src="GLTFLoader.js"></script>
-    <script src="OrbitControls.js"></script>
+	<script src="OrbitControls.js"></script>
+	<input type="button" id="hideShow" value="Show\Hide">
     <script>
       
       let scene, camera, renderer;
@@ -54,6 +55,11 @@ function init() {
 		car = gltf.scene.children[0];
 		scene.add(gltf.scene);
 		animate();
+	});
+
+	document.getElementById("hideShow").addEventListener("click", function(){
+		var lid = scene.getObjectByName("Lid");
+    	lid.visible = !object.visible;
 	});
 	
 }
