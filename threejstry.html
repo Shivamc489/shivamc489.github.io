@@ -49,7 +49,6 @@ function init() {
   
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
 	controls.addEventListener('change', renderer);
-	
 	let loader = new THREE.GLTFLoader();
 	loader.load('8ozCup.glb', function(gltf){
 		car = gltf.scene.children[0];
@@ -58,7 +57,10 @@ function init() {
 	});
 
 	document.getElementById("hideShow").addEventListener("click", function(){
-		var lid = scene.getObjectByName("Lid");
+		var lid = gltf.scene.getObjectByName("Lid");
+		console.log(scene.children);
+		console.log(gltf.scene);
+		console.log(lid);
     	lid.visible = !lid.visible;
 	});
 	
