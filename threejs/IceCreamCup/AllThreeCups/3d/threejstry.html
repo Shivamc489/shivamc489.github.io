@@ -8,7 +8,6 @@
     <script src="three.js"></script>
     <script src="GLTFLoader.js"></script>
 	<script src="OrbitControls.js"></script>
-	<button id="lidonoff">Lid on/off</button>
 	<button id="lightonoff">Light on/off</button>
     <script>
       
@@ -69,10 +68,6 @@ function init() {
 		animate();
 	});
 
-	document.getElementById("lidonoff").addEventListener("click", function(){
-		var lid = scene.getObjectByName("Lid");
-    	lid.visible = !lid.visible;
-	});
 
 	document.getElementById("lightonoff").addEventListener("click", function(){
     	dirLight.visible = !dirLight.visible;
