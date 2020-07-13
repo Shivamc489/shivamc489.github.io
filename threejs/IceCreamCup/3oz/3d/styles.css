@@ -1,0 +1,21 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+button {
+  position: absolute;
+  display: block;
+  z-index: 99;
+  left: 5%;
+  top: 90%;
+  padding: 15px;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  }
+  #lightonoff
+  {
+    position: absolute;
+    top : 80%;
+  }
