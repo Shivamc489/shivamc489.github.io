@@ -82,8 +82,8 @@ function resize() {
     var texAspect = bgWidth / bgHeight;
     var relAspect = aspect / texAspect;
 
-    bgTexture.repeat = new THREE.Vector2( Math.max(relAspect, 1), Math.max(1/relAspect,1) ); 
-    bgTexture.offset = new THREE.Vector2( -Math.max(relAspect-1, 0)/2, -Math.max(1/relAspect-1, 0)/2 ); 
+    // bgTexture.repeat = new THREE.Vector2( Math.max(relAspect, 1), Math.max(1/relAspect,1) ); 
+    // bgTexture.offset = new THREE.Vector2( -Math.max(relAspect-1, 0)/2, -Math.max(1/relAspect-1, 0)/2 ); 
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = aspect;
