@@ -59,7 +59,7 @@
 		scene.add( dirLight );
 
 		const canvas = document.querySelector('#c');
-		renderer = new THREE.WebGLRenderer({antialias:true,alpha: true});
+		renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha: true});
 		renderer.setSize(window.innerWidth,window.innerHeight);
 		renderer.gammaOutput = true;
 		renderer.gammaFactor = 2.2;
