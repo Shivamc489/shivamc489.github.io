@@ -8,7 +8,8 @@ body {
   height: 100vh;
   display: block;
   background: url(background.jpg) no-repeat center center ;
-  background-size: cover;
+  z-index: -1;
+  /* background-size: cover; */
 }
 button {
   position: absolute;
