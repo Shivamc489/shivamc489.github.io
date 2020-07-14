@@ -3,6 +3,13 @@ body {
   margin: 0;
   padding: 0;
 }
+#c {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background: url(background.jpg) no-repeat center center ;
+  /* background-size: cover; */
+}
 button {
   position: absolute;
   display: block;
