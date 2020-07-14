@@ -90,9 +90,9 @@ function init() {
 }
 function resize() {
     
-    var aspect = window.innerWidth / window.innerHeight;
-    var texAspect = bgWidth / bgHeight;
-    var relAspect = aspect / texAspect;
+    // var aspect = window.innerWidth / window.innerHeight;
+    // var texAspect = bgWidth / bgHeight;
+    // var relAspect = aspect / texAspect;
 
     // bgTexture.repeat = new THREE.Vector2( Math.max(relAspect, 1), Math.max(1/relAspect,1) ); 
     // bgTexture.offset = new THREE.Vector2( -Math.max(relAspect-1, 0)/2, -Math.max(1/relAspect-1, 0)/2 ); 
@@ -109,7 +109,7 @@ function resize() {
 	
 	bgTexture.offset.y = aspect > 1 ? 0 : (1 - aspect) / 2;
 	bgTexture.repeat.y = aspect > 1 ? 1 : aspect;
-	
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = aspect;
     camera.updateProjectionMatrix();
