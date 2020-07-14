@@ -9,6 +9,7 @@
     <script src="../../../threejsFiles/GLTFLoader.js"></script>
 	<script src="../../../threejsFiles/OrbitControls.js"></script>
 	<button id="lightonoff">Light on/off</button>
+	<canvas id="c"></canvas>
     <script>
       
       let scene, camera, renderer;
@@ -52,7 +53,8 @@ function init() {
 	scene.add( dirLight );
 
 
-	renderer = new THREE.WebGLRenderer({antialias:true});
+	const canvas = document.querySelector('#c');
+	renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha: true});
 	renderer.setSize(window.innerWidth,window.innerHeight);
 	renderer.gammaOutput = true;
 	renderer.gammaFactor = 2.2;
