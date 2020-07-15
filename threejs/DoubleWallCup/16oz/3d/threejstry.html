@@ -14,7 +14,7 @@
 	<canvas id="c"></canvas>
     <script>
       
-      let scene, camera, renderer;
+      let scene, camera, renderer,dirLight;
 	  var isColorWhite = true;
 
 	function init() {
@@ -49,7 +49,7 @@
 		hemiLight.position.set( 0, 20, 0 );
 		scene.add( hemiLight );
 
-		var dirLight = new THREE.DirectionalLight( 0xffffff );
+		dirLight = new THREE.DirectionalLight( 0xffffff );
 		dirLight.position.set( 0, 10, - 10 );
 		dirLight.castShadow = true;
 		dirLight.shadow.camera.top = 2;
@@ -59,7 +59,8 @@
 		dirLight.shadow.camera.near = 0.1;
 		dirLight.shadow.camera.far = 40;
 		scene.add( dirLight );
-		// dirLight.add(new THREE.AxesHelper(20));
+		dirLight.add(new THREE.AxesHelper(20));
+		scene.add(new THREE.AxesHelper(20));
 
 		// var dirLight2 = new THREE.DirectionalLight( 0xffffff );
 		// dirLight2.position.set( 0, 10, 10 );
@@ -172,7 +173,8 @@
 		camera.updateProjectionMatrix();
 	}
 	function animate() {
-
+		dirLight.position.copy( camera.position );
+		
 		renderer.render(scene,camera);
 		requestAnimationFrame(animate);
 		
