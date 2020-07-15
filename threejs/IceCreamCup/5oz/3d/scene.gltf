@@ -196,69 +196,69 @@
         {
             "bufferView" : 4,
             "componentType" : 5126,
-            "count" : 827,
+            "count" : 20480,
             "max" : [
-                0.40000033378601074,
-                0.450000137090683,
-                0.4000002145767212
+                0.3983760178089142,
+                0.4497896730899811,
+                0.39837586879730225
             ],
             "min" : [
-                -0.39999961853027344,
+                -0.3983753025531769,
                 0,
-                -0.39999985694885254
+                -0.398375540971756
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 5,
             "componentType" : 5126,
-            "count" : 827,
+            "count" : 20480,
             "type" : "VEC3"
         },
         {
             "bufferView" : 6,
             "componentType" : 5126,
-            "count" : 827,
+            "count" : 20480,
             "type" : "VEC2"
         },
         {
             "bufferView" : 7,
             "componentType" : 5123,
-            "count" : 1536,
+            "count" : 30720,
             "type" : "SCALAR"
         },
         {
             "bufferView" : 8,
             "componentType" : 5126,
-            "count" : 320,
+            "count" : 13312,
             "max" : [
-                0.3920372724533081,
-                0.450000137090683,
-                0.39203715324401855
+                0.39258044958114624,
+                0.4490760862827301,
+                0.3925803601741791
             ],
             "min" : [
-                -0.3920365571975708,
-                1.4901161193847656e-07,
-                -0.3920367956161499
+                -0.39257973432540894,
+                0.005746200680732727,
+                -0.39257991313934326
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 9,
             "componentType" : 5126,
-            "count" : 320,
+            "count" : 13312,
             "type" : "VEC3"
         },
         {
             "bufferView" : 10,
             "componentType" : 5126,
-            "count" : 320,
+            "count" : 13312,
             "type" : "VEC2"
         },
         {
             "bufferView" : 11,
             "componentType" : 5123,
-            "count" : 570,
+            "count" : 19968,
             "type" : "SCALAR"
         }
     ],
@@ -285,48 +285,48 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 9924,
+            "byteLength" : 245760,
             "byteOffset" : 327600
         },
         {
             "buffer" : 0,
-            "byteLength" : 9924,
-            "byteOffset" : 337524
+            "byteLength" : 245760,
+            "byteOffset" : 573360
         },
         {
             "buffer" : 0,
-            "byteLength" : 6616,
-            "byteOffset" : 347448
+            "byteLength" : 163840,
+            "byteOffset" : 819120
         },
         {
             "buffer" : 0,
-            "byteLength" : 3072,
-            "byteOffset" : 354064
+            "byteLength" : 61440,
+            "byteOffset" : 982960
         },
         {
             "buffer" : 0,
-            "byteLength" : 3840,
-            "byteOffset" : 357136
+            "byteLength" : 159744,
+            "byteOffset" : 1044400
         },
         {
             "buffer" : 0,
-            "byteLength" : 3840,
-            "byteOffset" : 360976
+            "byteLength" : 159744,
+            "byteOffset" : 1204144
         },
         {
             "buffer" : 0,
-            "byteLength" : 2560,
-            "byteOffset" : 364816
+            "byteLength" : 106496,
+            "byteOffset" : 1363888
         },
         {
             "buffer" : 0,
-            "byteLength" : 1140,
-            "byteOffset" : 367376
+            "byteLength" : 39936,
+            "byteOffset" : 1470384
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 368516,
+            "byteLength" : 1510320,
             "uri" : "scene.bin"
         }
     ]
