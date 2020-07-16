@@ -10,7 +10,7 @@ body {
   top: 0%;
   display: block;
   background: url(background.jpg) no-repeat;
-  background-position: 50% 70%;
+  background-position: 5% 80%;
   /* background-size: cover; */
 }
 button {
@@ -27,5 +27,5 @@ button {
   #lightonoff
   {
     position: absolute;
-    top : 80%;
+    top : 90%;
   }
