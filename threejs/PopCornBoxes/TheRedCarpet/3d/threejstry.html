@@ -12,7 +12,7 @@
 	<canvas id="c"></canvas>
     <script>
       
-      let scene, camera, renderer,dirLight;
+      let scene, camera, renderer,dirLight,action,mixer;
 	  var isColorWhite = true;
 
 	function init() {
@@ -114,17 +114,24 @@
 			car = gltf.scene.children[0];
 			scene.add(gltf.scene);
 			animate();
+
+			mixer = new THREE.AnimationMixer(car);
+			action = mixer.clipAction(gltf.animations[0]);
+			action.setLoop( THREE.LoopOnce );
+			console.log(gltf.animations[0]);
+			action.play();
 		});
 
-
+		
 		document.getElementById("lightonoff").addEventListener("click", function(){
 			console.log(scene);
 			console.log(scene.children);
 			console.log(dirLight);
 			dirLight.visible = !dirLight.visible;
 		});
-
+		
 	}
+
 	function resize() {
 		
 		var aspect = window.innerWidth / window.innerHeight;
