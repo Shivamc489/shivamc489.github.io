@@ -10,10 +10,12 @@
 	<script src="../../../threejsFiles/OrbitControls.js"></script>
 	<button id="lidonoff">Lid on/off</button>
 	<button id="lightonoff">Light on/off</button>
+	<button id="lidcolor">Lid colour change</button>
 	<canvas id="c"></canvas>
     <script>
       
-      let scene, camera, renderer;
+      let scene, camera, renderer,dirLight;
+	  var isColorWhite = true;
 
 	function init() {
 
@@ -43,12 +45,12 @@
 		camera.position.z = -5;
 		
 		
-		var hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+		var hemiLight = new THREE.HemisphereLight( 0xffffbb, 0x444444, 0.5 );
 		hemiLight.position.set( 0, 20, 0 );
 		scene.add( hemiLight );
 
-		var dirLight = new THREE.DirectionalLight( 0xffffff );
-		dirLight.position.set( - 3, 10, - 10 );
+		dirLight = new THREE.DirectionalLight( 0xffffff );
+		dirLight.position.set( 0, 10, - 10 );
 		dirLight.castShadow = true;
 		dirLight.shadow.camera.top = 2;
 		dirLight.shadow.camera.bottom = - 2;
@@ -57,13 +59,54 @@
 		dirLight.shadow.camera.near = 0.1;
 		dirLight.shadow.camera.far = 40;
 		scene.add( dirLight );
+		// dirLight.add(new THREE.AxesHelper(20));
+		// scene.add(new THREE.AxesHelper(20));
+
+		// var dirLight2 = new THREE.DirectionalLight( 0xffffff );
+		// dirLight2.position.set( 0, 10, 10 );
+		// dirLight2.castShadow = true;
+		// dirLight2.shadow.camera.top = 2;
+		// dirLight2.shadow.camera.bottom = - 2;
+		// dirLight2.shadow.camera.left = - 2;
+		// dirLight2.shadow.camera.right = 2;
+		// dirLight2.shadow.camera.near = 0.1;
+		// dirLight2.shadow.camera.far = 40;
+		// dirLight2.add(new THREE.AxesHelper(20));
+		// scene.add( dirLight2 );
+
+		// var dirLight3 = new THREE.DirectionalLight( 0xffffff );
+		// dirLight3.position.set( 5, 10,0 );
+		// dirLight3.castShadow = true;
+		// dirLight3.shadow.camera.top = 2;
+		// dirLight3.shadow.camera.bottom = - 2;
+		// dirLight3.shadow.camera.left = - 2;
+		// dirLight3.shadow.camera.right = 2;
+		// dirLight3.shadow.camera.near = 0.1;
+		// dirLight3.shadow.camera.far = 40;
+		// dirLight3.add(new THREE.AxesHelper(20));
+		// scene.add( dirLight3 );
+
+		// var dirLight4 = new THREE.DirectionalLight( 0xffffff );
+		// dirLight4.position.set( -5, 10,0 );
+		// dirLight4.castShadow = true;
+		// dirLight4.shadow.camera.top = 2;
+		// dirLight4.shadow.camera.bottom = - 2;
+		// dirLight4.shadow.camera.left = - 2;
+		// dirLight4.shadow.camera.right = 2;
+		// dirLight4.shadow.camera.near = 0.1;
+		// dirLight4.shadow.camera.far = 40;
+		// dirLight4.add(new THREE.AxesHelper(20));
+		// scene.add( dirLight4 );
+
+		// var worldAxis = new THREE.AxesHelper(20);
+  		// scene.add(worldAxis);
 
 		const canvas = document.querySelector('#c');
 		renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha: true});
 		renderer.setSize(window.innerWidth,window.innerHeight);
 		renderer.gammaOutput = true;
 		renderer.gammaFactor = 2.2;
-	document.body.appendChild(renderer.domElement);
+		document.body.appendChild(renderer.domElement);
 	
 	
 		controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -90,6 +133,18 @@
 			dirLight.visible = !dirLight.visible;
 		});
 		
+		document.getElementById("lidcolor").addEventListener("click", function(){
+			var lid = scene.getObjectByName("Lid");
+			isColorWhite = !isColorWhite;
+			if(isColorWhite)
+			{
+				lid.material.color.setHex( 0xffffff );
+			}
+			else
+			{
+				lid.material.color.setHex( 0x000000 );
+			}
+		});
 	}
 	function resize() {
 		
@@ -118,7 +173,8 @@
 		camera.updateProjectionMatrix();
 	}
 	function animate() {
-
+		dirLight.position.copy( camera.position );
+		
 		renderer.render(scene,camera);
 		requestAnimationFrame(animate);
 		
