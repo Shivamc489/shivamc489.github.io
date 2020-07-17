@@ -110,7 +110,7 @@
 		controls = new THREE.OrbitControls(camera, renderer.domElement);
 		controls.addEventListener('change', renderer);
 		let loader = new THREE.GLTFLoader();
-		loader.load('scene.gltb', function(gltf){
+		loader.load('scene.gltf', function(gltf){
 			car = gltf.scene.children[0];
 			scene.add(gltf.scene);
 			animate();
