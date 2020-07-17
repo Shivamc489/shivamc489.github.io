@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8 />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <script src="../../../threejsFiles/three.js"></script>
+    <script src="../../../threejsFiles/GLTFLoader.js"></script>
+	<script src="../../../threejsFiles/OrbitControls.js"></script>
+	<button id="lightonoff">Light on/off</button>
+	<canvas id="c"></canvas>
+    <script>
+      
+      let scene, camera, renderer,dirLight,action,mixer;
+	  var isColorWhite = true;
+
+	function init() {
+
+		scene = new THREE.Scene();
+
+		// const loade = new THREE.CubeTextureLoader();
+		// const cmtexture = loade.load([
+		//   'pos-x.jpg',
+		//   'neg-x.jpg',
+		//   'pos-y.jpg',
+		//   'neg-y.jpg',
+		//   'pos-z.jpg',
+		//   'neg-z.jpg',
+		// ]);
+		// scene.background = cmtexture;
+		
+		// scene.background = new THREE.Color(0xdddddd);
+
+		// const textureLoader = new THREE.TextureLoader();
+		// const bgTexture = textureLoader.load('background.jpg');
+		// scene.background = bgTexture;
+		
+		camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,0.1,1000);
+		camera.rotation.y = 45/180*Math.PI;
+		camera.position.x = -4;
+		camera.position.y = 2;
+		camera.position.z = -5;
+		
+		
+		var hemiLight = new THREE.HemisphereLight( 0xffffbb, 0x444444, 0.5 );
+		hemiLight.position.set( 0, 20, 0 );
+		scene.add( hemiLight );
+
+		dirLight = new THREE.DirectionalLight( 0xffffff );
+		dirLight.position.set( 0, 10, - 10 );
+		dirLight.castShadow = true;
+		dirLight.shadow.camera.top = 2;
+		dirLight.shadow.camera.bottom = - 2;
+		dirLight.shadow.camera.left = - 2;
+		dirLight.shadow.camera.right = 2;
+		dirLight.shadow.camera.near = 0.1;
+		dirLight.shadow.camera.far = 40;
+		scene.add( dirLight );
+		// dirLight.add(new THREE.AxesHelper(20));
+		// scene.add(new THREE.AxesHelper(20));
+
+		// var dirLight2 = new THREE.DirectionalLight( 0xffffff );
+		// dirLight2.position.set( 0, 10, 10 );
+		// dirLight2.castShadow = true;
+		// dirLight2.shadow.camera.top = 2;
+		// dirLight2.shadow.camera.bottom = - 2;
+		// dirLight2.shadow.camera.left = - 2;
+		// dirLight2.shadow.camera.right = 2;
+		// dirLight2.shadow.camera.near = 0.1;
+		// dirLight2.shadow.camera.far = 40;
+		// dirLight2.add(new THREE.AxesHelper(20));
+		// scene.add( dirLight2 );
+
+		// var dirLight3 = new THREE.DirectionalLight( 0xffffff );
+		// dirLight3.position.set( 5, 10,0 );
+		// dirLight3.castShadow = true;
+		// dirLight3.shadow.camera.top = 2;
+		// dirLight3.shadow.camera.bottom = - 2;
+		// dirLight3.shadow.camera.left = - 2;
+		// dirLight3.shadow.camera.right = 2;
+		// dirLight3.shadow.camera.near = 0.1;
+		// dirLight3.shadow.camera.far = 40;
+		// dirLight3.add(new THREE.AxesHelper(20));
+		// scene.add( dirLight3 );
+
+		// var dirLight4 = new THREE.DirectionalLight( 0xffffff );
+		// dirLight4.position.set( -5, 10,0 );
+		// dirLight4.castShadow = true;
+		// dirLight4.shadow.camera.top = 2;
+		// dirLight4.shadow.camera.bottom = - 2;
+		// dirLight4.shadow.camera.left = - 2;
+		// dirLight4.shadow.camera.right = 2;
+		// dirLight4.shadow.camera.near = 0.1;
+		// dirLight4.shadow.camera.far = 40;
+		// dirLight4.add(new THREE.AxesHelper(20));
+		// scene.add( dirLight4 );
+
+		// var worldAxis = new THREE.AxesHelper(20);
+  		// scene.add(worldAxis);
+
+		const canvas = document.querySelector('#c');
+		renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha: true});
+		renderer.setSize(window.innerWidth,window.innerHeight);
+		renderer.gammaOutput = true;
+		renderer.gammaFactor = 2.2;
+		document.body.appendChild(renderer.domElement);
+	
+	
+		controls = new THREE.OrbitControls(camera, renderer.domElement);
+		controls.addEventListener('change', renderer);
+		let loader = new THREE.GLTFLoader();
+		loader.load('scene.gltf', function(gltf){
+			car = gltf.scene.children[0];
+			scene.add(gltf.scene);
+			animate();
+
+			mixer = new THREE.AnimationMixer(car);
+			action = mixer.clipAction(gltf.animations[0]);
+			action.setLoop( THREE.LoopOnce );
+			console.log(gltf.animations[0]);
+			action.play();
+		});
+
+		
+		document.getElementById("lightonoff").addEventListener("click", function(){
+			console.log(scene);
+			console.log(scene.children);
+			console.log(dirLight);
+			dirLight.visible = !dirLight.visible;
+		});
+		
+	}
+
+	function resize() {
+		
+		var aspect = window.innerWidth / window.innerHeight;
+		var texAspect = bgWidth / bgHeight;
+		var relAspect = aspect / texAspect;
+
+		// bgTexture.repeat = new THREE.Vector2( Math.max(relAspect, 1), Math.max(1/relAspect,1) ); 
+		// bgTexture.offset = new THREE.Vector2( -Math.max(relAspect-1, 0)/2, -Math.max(1/relAspect-1, 0)/2 ); 
+
+		// // Set the repeat and offset properties of the background texture
+		// // to keep the image's aspect correct.
+		// // Note the image may not have loaded yet.
+		// const canvasAspect = canvas.clientWidth / canvas.clientHeight;
+		// const imageAspect = bgTexture.image ? bgTexture.image.width / bgTexture.image.height : 1;
+		// const aspect = imageAspect / canvasAspect;
+		
+		// bgTexture.offset.x = aspect > 1 ? (1 - 1 / aspect) / 2 : 0;
+		// bgTexture.repeat.x = aspect > 1 ? 1 / aspect : 1;
+		
+		// bgTexture.offset.y = aspect > 1 ? 0 : (1 - aspect) / 2;
+		// bgTexture.repeat.y = aspect > 1 ? 1 : aspect;
+
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		camera.aspect = aspect;
+		camera.updateProjectionMatrix();
+	}
+	function animate() {
+		dirLight.position.copy( camera.position );
+		
+		renderer.render(scene,camera);
+		requestAnimationFrame(animate);
+		
+	}
+
+	init();
+    </script>
+  </body>
+</html>
