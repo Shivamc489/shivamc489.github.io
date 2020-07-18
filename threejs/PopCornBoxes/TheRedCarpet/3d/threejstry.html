@@ -23,27 +23,10 @@
 	function init() {
 
 		scene = new THREE.Scene();
-
-		// const loade = new THREE.CubeTextureLoader();
-		// const cmtexture = loade.load([
-		//   'pos-x.jpg',
-		//   'neg-x.jpg',
-		//   'pos-y.jpg',
-		//   'neg-y.jpg',
-		//   'pos-z.jpg',
-		//   'neg-z.jpg',
-		// ]);
-		// scene.background = cmtexture;
-		
-		// scene.background = new THREE.Color(0xdddddd);
-
-		// const textureLoader = new THREE.TextureLoader();
-		// const bgTexture = textureLoader.load('background.jpg');
-		// scene.background = bgTexture;
 		
 		camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,0.1,1000);
 		camera.rotation.y = 45/180*Math.PI;
-		camera.position.x = -4;
+		camera.position.x = -4 ;
 		camera.position.y = 5;
 		camera.position.z = -5;
 		
@@ -97,6 +80,7 @@
 			console.log(dirLight);
 			dirLight.visible = !dirLight.visible;
 		});
+
 		
 	}
 
