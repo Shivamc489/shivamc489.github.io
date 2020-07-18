@@ -8,6 +8,7 @@
     <script src="../../../threejsFiles/three.js"></script>
     <script src="../../../threejsFiles/GLTFLoader.js"></script>
 	<script src="../../../threejsFiles/OrbitControls.js"></script>
+	<button id="popcornonoff">Popcorn on/off</button>
 	<button id="lightonoff">Light on/off</button>
 	<canvas id="c"></canvas>
     <script>
@@ -39,7 +40,7 @@
 		camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,0.1,1000);
 		camera.rotation.y = 45/180*Math.PI;
 		camera.position.x = -4;
-		camera.position.y = 2;
+		camera.position.y = 4;
 		camera.position.z = -5;
 		
 		
@@ -114,7 +115,7 @@
 			car = gltf.scene.children[0];
 			scene.add(gltf.scene);
 			animate();
-
+			
 			mixer = new THREE.AnimationMixer(car);
 			action = mixer.clipAction(gltf.animations[0]);
 			action.setLoop( THREE.LoopOnce );
@@ -122,12 +123,13 @@
 			action.play();
 		});
 
-		
 		document.getElementById("lightonoff").addEventListener("click", function(){
-			console.log(scene);
-			console.log(scene.children);
-			console.log(dirLight);
 			dirLight.visible = !dirLight.visible;
+		});
+		document.getElementById("popcornonoff").addEventListener("click", function(){
+			var popcorn = scene.getObjectByName("PopCorn");
+			console.log(popcorn);
+			popcorn.visible = !popcorn.visible;
 		});
 		
 	}

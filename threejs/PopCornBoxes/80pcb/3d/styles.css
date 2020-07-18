@@ -24,6 +24,11 @@ button {
   border: 1px solid black;
   border-radius: 20px;
   }
+  #popcornonoff
+  {
+    position: absolute;
+    top : 80%;
+  }
   #lightonoff
   {
     position: absolute;
