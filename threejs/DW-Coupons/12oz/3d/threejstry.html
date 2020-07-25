@@ -8,6 +8,7 @@
     <script src="../../../threejsFiles/three.js"></script>
     <script src="../../../threejsFiles/GLTFLoader.js"></script>
 	<script src="../../../threejsFiles/OrbitControls.js"></script>
+	<button id="coupononoff">Reveal Coupon</button>
 	<button id="lidonoff">Lid on/off</button>
 	<button id="lightonoff">Light on/off</button>
 	<button id="lidcolor">Lid colour change</button>
@@ -17,11 +18,12 @@
 	</section>
     <script>
       
-      let scene, camera, renderer,dirLight;
+      let scene, camera, renderer,dirLight,mixer,action,clock;
 	  var isColorWhite = true;
 
 	function init() {
 
+		clock = new THREE.Clock();
 		scene = new THREE.Scene();
 
 		camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,0.1,1000);
@@ -66,9 +68,24 @@
 		controls.addEventListener('change', renderer);
 		let loader = new THREE.GLTFLoader(loadingManager);
 		loader.load('scene.gltf', function(gltf){
-			car = gltf.scene.children[0];
+			car = gltf.scene;
 			scene.add(gltf.scene);
+			mixer = new THREE.AnimationMixer(car);
+			action = mixer.clipAction(gltf.animations[0]);
+			console.log(gltf.animations[0]);
+			action.setLoop( THREE.LoopOnce );
+			action.clampWhenFinished = true;
 			animate();
+		});
+
+		document.getElementById("coupononoff").addEventListener("click", function()
+		{
+			if ( action !== null ) 
+			{
+				action.stop();
+				action.play();
+				console.log("played");
+			}
 		});
 
 		document.getElementById("lidonoff").addEventListener("click", function(){
@@ -112,6 +129,11 @@
 	function animate() {
 		dirLight.position.copy( camera.position );
 		
+		var delta = clock.getDelta();
+		if (mixer !== null) {
+			mixer.update(delta);
+		};
+
 		renderer.render(scene,camera);
 		requestAnimationFrame(animate);
 	}
