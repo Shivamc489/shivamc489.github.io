@@ -70,27 +70,27 @@
 		loader.load('scene.gltf', function(gltf){
 			car = gltf.scene;
 			scene.add(gltf.scene);
-			// mixer = new THREE.AnimationMixer(car);
-			// action = mixer.clipAction(gltf.animations[0]);
-			// console.log(gltf.animations[0]);
-			// action.setLoop( THREE.LoopOnce );
-			// action.clampWhenFinished = true;
+			mixer = new THREE.AnimationMixer(car);
+			action = mixer.clipAction(gltf.animations[0]);
+			console.log(gltf.animations[0]);
+			action.setLoop( THREE.LoopOnce );
+			action.clampWhenFinished = true;
 			animate();
 		});
 
-		// document.getElementById("coupononoff").addEventListener("click", function()
-		// {
-		// 	if ( action !== null ) 
-		// 	{
-		// 		action.stop();
-		// 		if(!revealedCoupon)
-		// 		{
-		// 			action.play();
-		// 			console.log("played");
-		// 		}
-		// 		revealedCoupon = !revealedCoupon;
-		// 	}
-		// });
+		document.getElementById("coupononoff").addEventListener("click", function()
+		{
+			if ( action !== null ) 
+			{
+				action.stop();
+				if(!revealedCoupon)
+				{
+					action.play();
+					console.log("played");
+				}
+				revealedCoupon = !revealedCoupon;
+			}
+		});
 
 		document.getElementById("lidonoff").addEventListener("click", function(){
 			var lid = scene.getObjectByName("Lid");
@@ -133,10 +133,10 @@
 	function animate() {
 		dirLight.position.copy( camera.position );
 		
-		// var delta = clock.getDelta();
-		// if (mixer !== null) {
-		// 	mixer.update(delta);
-		// };
+		var delta = clock.getDelta();
+		if (mixer !== null) {
+			mixer.update(delta);
+		};
 
 		renderer.render(scene,camera);
 		requestAnimationFrame(animate);
