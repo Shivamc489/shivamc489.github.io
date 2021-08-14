@@ -21,7 +21,7 @@
 	
 			<div id="container" style="position: fixed;"></div>
 			  
-			<span style="font-size:30px;cursor:pointer;position: absolute;" onclick="openNav()">&#9776; open</span>
+			<!-- <span style="font-size:30px;cursor:pointer;position: absolute;" onclick="openNav()">&#9776; open</span> -->
 		
 			<button type="button" id="place-button">PLACE</button>
 		</div>
@@ -103,7 +103,7 @@
 						render();
 
 						var loader = new GLTFLoader().setPath('3d/');
-						loader.load(model + ".glb", function(glb) {
+						loader.load("2.glb", function(glb) {
 
 							current_object = glb.scene;
               var photo = current_object.getObjectByName("photo");
@@ -225,7 +225,7 @@
 					rotateObject();
 
 				}, false);
-
+        loadModel($(this).attr("id"));
 			}
 
 			var touchDown, touchX, touchY, deltaX, deltaY;
