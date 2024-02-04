@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.3.48",
+        "generator" : "Khronos glTF Blender I/O v3.2.40",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -10,41 +10,11 @@
             "nodes" : [
                 0,
                 1,
-                2,
-                3,
-                4
+                2
             ]
         }
     ],
     "nodes" : [
-        {
-            "name" : "Light",
-            "rotation" : [
-                0.16907575726509094,
-                0.7558803558349609,
-                -0.27217137813568115,
-                0.570947527885437
-            ],
-            "translation" : [
-                4.076245307922363,
-                5.903861999511719,
-                -1.0054539442062378
-            ]
-        },
-        {
-            "name" : "Camera",
-            "rotation" : [
-                0.483536034822464,
-                0.33687159419059753,
-                -0.20870360732078552,
-                0.7804827094078064
-            ],
-            "translation" : [
-                7.358891487121582,
-                4.958309173583984,
-                6.925790786743164
-            ]
-        },
         {
             "mesh" : 0,
             "name" : "Circle"
@@ -81,16 +51,10 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0,
-                0,
-                0
-            ],
             "name" : "Material.001",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
-                    "index" : 0,
-                    "texCoord" : 0
+                    "index" : 0
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
@@ -98,11 +62,6 @@
         },
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0,
-                0,
-                0
-            ],
             "name" : "Material.002",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -117,11 +76,6 @@
         },
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0,
-                0,
-                0
-            ],
             "name" : "Material.003",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -136,11 +90,6 @@
         },
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0,
-                0,
-                0
-            ],
             "name" : "Material.000",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -156,7 +105,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Circle",
+            "name" : "Mesh",
             "primitives" : [
                 {
                     "attributes" : {
@@ -209,6 +158,7 @@
     ],
     "textures" : [
         {
+            "sampler" : 0,
             "source" : 0
         }
     ],
@@ -223,7 +173,7 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 8190,
+            "count" : 8192,
             "max" : [
                 0.3963034749031067,
                 0.8997554183006287,
@@ -239,13 +189,13 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 8190,
+            "count" : 8192,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 8190,
+            "count" : 8192,
             "type" : "VEC2"
         },
         {
@@ -325,7 +275,7 @@
         {
             "bufferView" : 12,
             "componentType" : 5126,
-            "count" : 11666,
+            "count" : 11669,
             "max" : [
                 1.0039490461349487,
                 0.31729891896247864,
@@ -341,13 +291,13 @@
         {
             "bufferView" : 13,
             "componentType" : 5126,
-            "count" : 11666,
+            "count" : 11669,
             "type" : "VEC3"
         },
         {
             "bufferView" : 14,
             "componentType" : 5126,
-            "count" : 11666,
+            "count" : 11669,
             "type" : "VEC2"
         },
         {
@@ -360,88 +310,94 @@
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 98280,
+            "byteLength" : 98304,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 98280,
-            "byteOffset" : 98280
+            "byteLength" : 98304,
+            "byteOffset" : 98304
         },
         {
             "buffer" : 0,
-            "byteLength" : 65520,
-            "byteOffset" : 196560
+            "byteLength" : 65536,
+            "byteOffset" : 196608
         },
         {
             "buffer" : 0,
             "byteLength" : 24576,
-            "byteOffset" : 262080
+            "byteOffset" : 262144
         },
         {
             "buffer" : 0,
             "byteLength" : 208896,
-            "byteOffset" : 286656
+            "byteOffset" : 286720
         },
         {
             "buffer" : 0,
             "byteLength" : 208896,
-            "byteOffset" : 495552
+            "byteOffset" : 495616
         },
         {
             "buffer" : 0,
             "byteLength" : 139264,
-            "byteOffset" : 704448
+            "byteOffset" : 704512
         },
         {
             "buffer" : 0,
             "byteLength" : 52224,
-            "byteOffset" : 843712
+            "byteOffset" : 843776
         },
         {
             "buffer" : 0,
             "byteLength" : 131568,
-            "byteOffset" : 895936
+            "byteOffset" : 896000
         },
         {
             "buffer" : 0,
             "byteLength" : 131568,
-            "byteOffset" : 1027504
+            "byteOffset" : 1027568
         },
         {
             "buffer" : 0,
             "byteLength" : 87712,
-            "byteOffset" : 1159072
+            "byteOffset" : 1159136
         },
         {
             "buffer" : 0,
             "byteLength" : 22344,
-            "byteOffset" : 1246784
+            "byteOffset" : 1246848
         },
         {
             "buffer" : 0,
-            "byteLength" : 139992,
-            "byteOffset" : 1269128
+            "byteLength" : 140028,
+            "byteOffset" : 1269192
         },
         {
             "buffer" : 0,
-            "byteLength" : 139992,
-            "byteOffset" : 1409120
+            "byteLength" : 140028,
+            "byteOffset" : 1409220
         },
         {
             "buffer" : 0,
-            "byteLength" : 93328,
-            "byteOffset" : 1549112
+            "byteLength" : 93352,
+            "byteOffset" : 1549248
         },
         {
             "buffer" : 0,
             "byteLength" : 29226,
-            "byteOffset" : 1642440
+            "byteOffset" : 1642600
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 1671668,
+            "byteLength" : 1671828,
             "uri" : "scene.bin"
         }
     ]
