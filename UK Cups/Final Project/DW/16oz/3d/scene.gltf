@@ -17,7 +17,7 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "Circle"
+            "name" : "Cup"
         },
         {
             "mesh" : 1,
@@ -35,7 +35,7 @@
         },
         {
             "mesh" : 2,
-            "name" : "Torus.002",
+            "name" : "Ring",
             "scale" : [
                 1.0704466104507446,
                 1.0704466104507446,
@@ -77,6 +77,9 @@
         {
             "doubleSided" : true,
             "name" : "Material.001",
+            "normalTexture" : {
+                "index" : 1
+            },
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0,
@@ -84,8 +87,9 @@
                     0,
                     1
                 ],
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
             }
         }
     ],
@@ -146,6 +150,14 @@
         {
             "sampler" : 0,
             "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
         }
     ],
     "images" : [
@@ -153,6 +165,16 @@
             "mimeType" : "image/png",
             "name" : "texture",
             "uri" : "texture.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "scuffed-plastic-normal",
+            "uri" : "scuffed-plastic-normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "scuffed-plastic-metal-scuffed-plastic-rough",
+            "uri" : "scuffed-plastic-metal-scuffed-plastic-rough.png"
         }
     ],
     "accessors" : [
