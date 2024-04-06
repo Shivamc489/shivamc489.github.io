@@ -89,7 +89,8 @@
                 ],
                 "metallicRoughnessTexture" : {
                     "index" : 2
-                }
+                },
+                "roughnessFactor" : 0.5
             }
         }
     ],
@@ -173,8 +174,8 @@
         },
         {
             "mimeType" : "image/png",
-            "name" : "scuffed-plastic-metal-scuffed-plastic-rough",
-            "uri" : "scuffed-plastic-metal-scuffed-plastic-rough.png"
+            "name" : "scuffed-plastic-metal",
+            "uri" : "scuffed-plastic-metal.png"
         }
     ],
     "accessors" : [
